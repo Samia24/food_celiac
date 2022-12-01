@@ -43,7 +43,7 @@ class ResetPasswordPage extends StatelessWidget {
                  height: 10,
                ),
                Text(
-                 "Por favor, informe o e-mail associado a sua conta que enviaremos um link para o mesmo com as intruções para a restauração de sua senha.",
+                 "Por favor, informe o e-mail associado a sua conta que enviaremos um link para o mesmo com as instruções para a restauração de sua senha.",
                  style: TextStyle(
                    fontSize: 16,
                    fontWeight: FontWeight.w400,

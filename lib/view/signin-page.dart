@@ -35,6 +35,7 @@ class _SigninPageState extends State<SigninPage> {
             Text(
               'Login',
               style: TextStyle(
+                letterSpacing: 3,
                 fontSize: 25,
                 color: Colors.redAccent[400],
                 fontWeight: FontWeight.bold,
@@ -176,13 +177,13 @@ class _SigninPageState extends State<SigninPage> {
         if(e.code == 'user-not-found') {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content:
-              Text('Usuário errado'),
+              Text('Usuário incorreto'),
             )
           );
         } else if (e.code == 'wrong-password') {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content:
-            Text('Senha errada'),
+            Text('Senha incorreta'),
             )
           );
         }

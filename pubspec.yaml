@@ -69,6 +69,8 @@ flutter:
   assets:
     - images/logo.png
     - images/reset.png
+    - images/dia_celiaco.jpeg
+    - images/glutenfree.png
     - pdf/ficha_hosp.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see

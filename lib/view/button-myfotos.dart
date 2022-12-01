@@ -14,13 +14,18 @@ class _MyFotosState extends State<MyFotos> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Fotos'),
+        backgroundColor: Colors.redAccent[400],
       ),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
           ListTile(
-            title: const Text('Evento - Casamento'),
-            onTap: () {},
+            title: const Text('Dia Nacional do Celíaco'),
+            onTap: () {
+              Navigator.pushNamed(
+                      context, '/fotos'
+                   );
+            },
           ),
           ListTile(
             title: const Text('Evento - Formatura'),

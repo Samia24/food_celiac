@@ -8,6 +8,7 @@ import 'package:meuapp/view/button-myfotos.dart';
 import 'package:meuapp/view/button-mymaps.dart';
 import 'package:meuapp/view/button-mypdfs.dart';
 import 'package:meuapp/view/homepage.dart';
+import 'package:meuapp/view/images.dart';
 import 'package:meuapp/view/reset-password-page.dart';
 import 'package:meuapp/view/signin-page.dart';
 import 'package:meuapp/view/signuppage.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         '/documentos': (context) => const MyDocuments(),
         '/agenda': (context) => const MyAgend(),
         '/eventos': (context) => const MyEvent(),
-        '/fotos': (context) => const MyFotos(),
+        '/fotos': (context) => const Images(),
         //'/homemap': (context) => const MyMaps(),
         '/pdf': (context) => const MyPdfs(),
       },
