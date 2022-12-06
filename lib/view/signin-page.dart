@@ -21,139 +21,150 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(15),
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: 200,
-              height: 200,
-              child: Image.asset('images/logo.png'),
-            ),
-            Text(
-              'Login',
-              style: TextStyle(
-                letterSpacing: 3,
-                fontSize: 25,
-                color: Colors.redAccent[400],
-                fontWeight: FontWeight.bold,
+      backgroundColor: Colors.greenAccent[400],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(15),
+          color: Colors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: 200,
+                height: 200,
+                child: Image.asset('images/logo.png'),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: "E-mail",
-                labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w400,
+              Text(
+                'Login',
+                style: TextStyle(
+                  letterSpacing: 3,
+                  fontSize: 25,
+                  color: Colors.redAccent[400],
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: "E-mail",
+                  labelStyle: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  ),
+                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black))
+                ),
+                style: TextStyle(
                   fontSize: 20,
                 ),
               ),
-              style: TextStyle(
-                fontSize: 20,
+              SizedBox(
+                height: 10,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextField(
-              controller: passwordController,
-              keyboardType: TextInputType.text,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Senha",
-                labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
+              TextField(
+                controller: passwordController,
+                keyboardType: TextInputType.text,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: "Senha",
+                  labelStyle: TextStyle(
+                    color: Colors.black38,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black)),
                 ),
+                style: TextStyle(fontSize: 20),
               ),
-              style: TextStyle(fontSize: 20),
-            ),
-            SizedBox(
-              height: 7,
-            ),
-            Container(
-              height: 40,
-              alignment: Alignment.centerRight,
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                child: Text(
-                  "Esqueceu a senha?",
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ResetPasswordPage(),
-                    ),
-                  );
-                },
+              SizedBox(
+                height: 7,
               ),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-              height: 40,
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60),
-              ),
-              child: ElevatedButton(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Entrar",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
+              Container(
+                height: 40,
+                alignment: Alignment.centerRight,
+                margin: EdgeInsets.all(10),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(0, 0, 0, 0),
+                    elevation: 200
+                  ),
+                  child: Text(
+                    "Esqueceu a senha?",
+                    style: TextStyle(color: Colors.redAccent[400]),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResetPasswordPage(),
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
-                onPressed: () => {
-                  loginAuth()
-                },
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              height: 40,
-              child: ElevatedButton(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Criar nova conta",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 40,
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
+                ),
+                child: ElevatedButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Entrar",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  onPressed: () => {
+                    loginAuth()
+                  },
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignupPage(),
-                    ),
-                  );
-                },
               ),
-            ),
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 40,
+                child: ElevatedButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Criar nova conta",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignupPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       

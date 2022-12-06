@@ -23,18 +23,18 @@ class _MyFotosState extends State<MyFotos> {
             title: const Text('Dia Nacional do Celíaco'),
             onTap: () {
               Navigator.pushNamed(
-                      context, '/fotos'
+                      context, '/foto'
                    );
             },
           ),
           ListTile(
-            title: const Text('Evento - Formatura'),
-            onTap: () {},
+            title: const Text('Glúten na composição dos produtos'),
+            onTap: () {
+              Navigator.pushNamed(
+                      context, '/foto2'
+                   );
+            },
           ),
-          ListTile(
-            title: const Text('Evento - Aniversário'),
-            onTap: () {},
-          )
         ],
       ),
     );

@@ -20,12 +20,51 @@ class _MyDocumentsState extends State<MyDocuments> {
         padding: EdgeInsets.zero,
         children: [
           ListTile(
-            title: const Text('Orientações'),
+            title: const Text('Ficha para internação'),
             onTap: (() {
                Navigator.pushNamed(
                       context, '/pdf'
                    );
-             
+             }),
+          ),
+          ListTile(
+            title: const Text('Orientações para internação hospitalar'),
+            onTap: (() {
+               Navigator.pushNamed(
+                      context, '/pdf2'
+                   );
+            }),
+          ),
+          ListTile(
+            title: const Text('Guia de orientação para o celíaco'),
+            onTap: (() {
+               Navigator.pushNamed(
+                      context, '/pdf3'
+                   );
+            }),
+          ),
+          ListTile(
+            title: const Text('Direitos dos celíacos'),
+            onTap: (() {
+               Navigator.pushNamed(
+                      context, '/pdf4'
+                   );
+            }),
+          ),
+          ListTile(
+            title: const Text('Orientações para farmácias de manipulação'),
+            onTap: (() {
+               Navigator.pushNamed(
+                      context, '/pdf5'
+                   );
+            }),
+          ),
+          ListTile(
+            title: const Text('Receitas simples - sem glúten'),
+            onTap: (() {
+               Navigator.pushNamed(
+                      context, '/pdf6'
+                   );
             }),
           ),
         ],

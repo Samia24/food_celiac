@@ -32,7 +32,8 @@ class _SignupPageState extends State<SignupPage> {
         ),
         (route) => false);
       }
-    }on FirebaseAuthException catch (e) {
+    }
+    on FirebaseAuthException catch (e) {
       if(e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content:
@@ -46,10 +47,10 @@ class _SignupPageState extends State<SignupPage> {
               Text('Email já existente'),
               backgroundColor: Colors.redAccent,
             )
-          );
+        );
       }
     }
-    }
+  }
 
 
   @override
@@ -76,7 +77,7 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               Text('Faça seu cadastro',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   color: Colors.redAccent[400],
                   fontWeight: FontWeight.bold,
                   ),
@@ -94,7 +95,8 @@ class _SignupPageState extends State<SignupPage> {
                   fontWeight: FontWeight.w400,
                   fontSize: 20,
                   ),
-                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black))
+                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)
+                  ),
                 ),
                 style: TextStyle(
                   fontSize:20, 
@@ -189,8 +191,9 @@ class _SignupPageState extends State<SignupPage> {
                         MaterialPageRoute(
                           builder:(context) => SigninPage()
                           ),
-                        );
-                  }, child: Text("Já possui conta? Faça login", style: TextStyle(color: Colors.redAccent[400]),),),
+                    );
+                  }, 
+                  child: Text("Já possui conta? Faça login", style: TextStyle(color: Colors.redAccent[400]),),),
                 ),
           ],
         ),

@@ -32,8 +32,10 @@ dependencies:
   flutter:
     sdk: flutter
   google_maps_flutter: ^2.2.1
+  flutter_config: ^2.0.0
   geolocator: ^9.0.2
   syncfusion_flutter_pdfviewer: ^20.3.59
+  url_launcher: ^6.1.0
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -42,6 +44,7 @@ dependencies:
   firebase_core: ^2.3.0
   firebase_auth: ^4.1.4
   path: ^1.8.2
+
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +74,13 @@ flutter:
     - images/reset.png
     - images/dia_celiaco.jpeg
     - images/glutenfree.png
+    - images/tabela_gluten.png
     - pdf/ficha_hosp.pdf
+    - pdf/orien_intern_hosp.pdf
+    - pdf/guia.pdf
+    - pdf/direitos.pdf
+    - pdf/orient_farm.pdf
+    - pdf/receitas.pdf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
