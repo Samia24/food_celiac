@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meuapp/main.dart';
-import 'package:meuapp/view/botton-myevent.dart';
 import 'package:meuapp/view/button-myagend.dart';
 import 'package:meuapp/view/button-mydocuments.dart';
 import 'package:meuapp/view/button-myfotos.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
         '/Home': (context) => const Home(),
         '/documentos': (context) => const MyDocuments(),
         '/agenda': (context) => const MyAgend(),
-        '/eventos': (context) => const MyEvent(),
         '/foto': (context) => const Images(),
         '/foto2': (context) => const Image2(),
         //'/homemap': (context) => const MyMaps(),

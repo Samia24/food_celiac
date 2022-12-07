@@ -14,12 +14,17 @@ class MyAgend extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.redAccent[400],
         title: const Text('Instagram do Grupo Celíacos-PI'),
       ),
        body: Center(
         widthFactor: 150,
         heightFactor: 150,
          child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.redAccent[400], 
+            onPrimary: Colors.white
+            ),
            onPressed: launchURL,
            child: const Text('Link do instagram'),
          ),
