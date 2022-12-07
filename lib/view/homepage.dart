@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meuapp/controller/buttons.dart';
@@ -46,13 +48,24 @@ class _HomePageState extends State<HomePage> {
             const DrawerHeader(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('images/logo.png'), scale: 1.0),
-                    color: Colors.white),
+                        image: AssetImage('images/glutenfree.png'), scale: 1.0),
+                    ),
                 child: Text(
                   '',
                   style: TextStyle(),
                 )),
-            ListTile(title: const Text('Volte sempre !!')),
+            ListTile(
+              onTap: () => Navigator.pushNamed(context, '/'),
+              dense: true,
+              trailing: Icon(Icons.exit_to_app_rounded,
+              color: Colors.red),
+              title: Text('Volte sempre ',
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.redAccent[400]
+              ),),
+              ),
           ],
         ),
       ),
