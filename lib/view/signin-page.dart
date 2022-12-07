@@ -21,7 +21,6 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent[400],
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(15),
@@ -30,8 +29,8 @@ class _SigninPageState extends State<SigninPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
-                width: 200,
-                height: 200,
+                width: 250,
+                height: 250,
                 child: Image.asset('images/logo.png'),
               ),
               Text(
@@ -56,7 +55,8 @@ class _SigninPageState extends State<SigninPage> {
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
                   ),
-                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black))
+                  border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)
+                  ),
                 ),
                 style: TextStyle(
                   fontSize: 20,
@@ -77,17 +77,18 @@ class _SigninPageState extends State<SigninPage> {
                     fontSize: 20,
                   ),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black)),
+                    borderSide: BorderSide(color: Colors.black)
+                  ),
                 ),
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(
-                height: 7,
+                height: 10,
               ),
               Container(
                 height: 40,
                 alignment: Alignment.centerRight,
-                margin: EdgeInsets.all(10),
+                //margin: EdgeInsets.all(10),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(0, 0, 0, 0),
@@ -139,6 +140,10 @@ class _SigninPageState extends State<SigninPage> {
               ),
               Container(
                 height: 40,
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
+                ),
                 child: ElevatedButton(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -167,10 +172,9 @@ class _SigninPageState extends State<SigninPage> {
           ),
         ),
       ),
-      
-    );
-    
+    );  
   }
+
   loginAuth() async {
       try{
         UserCredential userCredential = await firebaseAuth.signInWithEmailAndPassword(
