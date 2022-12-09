@@ -9,6 +9,7 @@ import 'package:meuapp/view/button-myfotos.dart';
 import 'package:meuapp/view/button-mymaps.dart';
 import '../main.dart';
 import 'package:path/path.dart' as p;
+//import 'package:open_whatsapp/open_whatsapp.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,9 +48,9 @@ class _HomePageState extends State<HomePage> {
           children: [
             const DrawerHeader(
                 decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('images/glutenfree.png'), scale: 1.0),
-                    ),
+                  image: DecorationImage(
+                      image: AssetImage('images/glutenfree.png'), scale: 1.0),
+                ),
                 child: Text(
                   '',
                   style: TextStyle(),
@@ -57,15 +58,13 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               onTap: () => Navigator.pushNamed(context, '/'),
               dense: true,
-              trailing: Icon(Icons.exit_to_app_rounded,
-              color: Colors.red),
-              title: Text('Volte sempre ',
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.redAccent[400]
-              ),),
+              trailing: Icon(Icons.exit_to_app_rounded, color: Colors.red),
+              title: Text(
+                'Volte sempre ',
+                textAlign: TextAlign.right,
+                style: TextStyle(fontSize: 20, color: Colors.redAccent[400]),
               ),
+            ),
           ],
         ),
       ),
@@ -106,7 +105,7 @@ class _HomeState extends State<Home> {
         children: [
           Image.asset(
             'images/logo.png',
-            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -203,10 +202,13 @@ class Contatos extends StatefulWidget {
 }
 
 class _ContatosState extends State<Contatos> {
-  
-  launchURL() {
-    launchUrl(p.toUri('https://api.whatsapp.com/send?phone=558688282840&utm_medium=social&utm_source=heylink.me'));
-   }
+  Future<void> _launchlink(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url, forceWebView: false, forceSafariVC: false);
+    } else {
+      print('Não pode executar o link $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -219,156 +221,208 @@ class _ContatosState extends State<Contatos> {
         padding: EdgeInsets.zero,
         children: [
           ListTile(
-            title: 
-              Container(
-                child: Column(
+            title: Container(
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  Row(
                     children: [
-                      SizedBox(height:20),
-                      Row(
-                        children: [
-                          const Icon(Icons.store,
-                          color: Colors.red,),
-                          const Text('Mundo Verde - Jóquei'),
-                          ],
+                      const Icon(
+                        Icons.store,
+                        color: Colors.red,
                       ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                          color: Colors.red,),
-                          const Text('Av. Dom Severino, 100 - Jockey Club, Teresina - PI, 64052-005'),
-                          ],
+                      const Text('Mundo Verde - Jóquei'),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
                       ),
-                      Row(
-                        children: [
-                          const Icon(Icons.whatsapp,
-                              color: Colors.greenAccent),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.redAccent[400], 
-                              onPrimary: Colors.white
-                              ),
-                              onPressed: launchURL,
-                              child: const Text('Link para pedidos'),
-                              ),
-                          ],
-                      ),
-                      SizedBox(height:30),
-                    Row(
-                        children: [
-                          const Icon(Icons.store,
-                          color: Colors.red,),
-                          const Text('Mundo Verde - Teresina Shopping'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                          color: Colors.red,),
-                          const Text('Av. Raul Lopes, 1000 - Loja 302 - Noivos, Teresina - PI, 64046-902'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.whatsapp,
-                              color: Colors.greenAccent),
-                          const Text('(86) 3231-1345'),
-                        ],
-                      ),
-                       SizedBox(height:30),
-                    Row(
-                        children: [
-                          const Icon(Icons.store,
-                          color: Colors.red,),
-                          const Text('Mercado dos Grãos - São Cristóvão'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                          color: Colors.red,),
-                          const Text('Av. Dom Severino, 2134 Salas 1 a 4 - São Cristóvão, Teresina - PI, 64051-160'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.whatsapp,
-                              color: Colors.greenAccent),
-                          const Text('(86) 99581-2548'),
-                        ],
-                      ),
-                      SizedBox(height:30),
-                    Row(
-                        children: [
-                          const Icon(Icons.store,
-                          color: Colors.red,),
-                          const Text('Mercado dos Grãos - Jóquei'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                          color: Colors.red,),
-                          const Text('R. Des. Manoel Castelo Branco, 1320 - Jóquei, Teresina - PI, 64049-270'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.whatsapp,
-                              color: Colors.greenAccent),
-                          const Text('(86) 99475-4713'),
-                        ],
-                      ),
-                      SizedBox(height:30),
-                    Row(
-                        children: [
-                          const Icon(Icons.store,
-                          color: Colors.red,),
-                          const Text('Ateliê Fit da Jú'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                          color: Colors.red,),
-                          const Text('Av. Pedro Almeida, 1039 - São Cristóvão, Teresina - PI, 64052-280'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.whatsapp,
-                              color: Colors.greenAccent),
-                          const Text('(86) 99800-9527'),
-                        ],
-                      ),
-                      SizedBox(height:30),
-                    Row(
-                        children: [
-                          const Icon(Icons.store,
-                          color: Colors.red,),
-                          const Text('Confeitaria Jacqueline Freire'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                          color: Colors.red,),
-                          const Text('Rua Professor Joca Vieira, 1640 - Fátima, Teresina - PI, 64049-514'),
-                          ],
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.whatsapp,
-                              color: Colors.greenAccent),
-                          const Text('(86) 99862-5907'),
-                        ],
+                      const Text(
+                          'Av. Dom Severino, 100 - Jockey Club, Teresina - PI, 64052-005'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        icon: Icon(
+                          Icons.phone,
+                          color: Colors.blueAccent,
+                        ),
+                        label: Text('(86) 3305-8074',
+                            style: TextStyle(color: Colors.black)),
+                        onPressed: () => _launchlink('+550863305-8074'),
                       ),
                     ],
                   ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.store,
+                        color: Colors.red,
+                      ),
+                      const Text('Mundo Verde - Teresina Shopping'),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                      ),
+                      const Text(
+                          'Av. Raul Lopes, 1000 - Loja 302 - Noivos, Teresina - PI, 64046-902'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        icon: Icon(
+                          Icons.phone,
+                          color: Colors.blueAccent,
+                        ),
+                        label: Text('(86) 3231-1345',
+                            style: TextStyle(color: Colors.black)),
+                        onPressed: () => _launchlink('+550863305-8074'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.store,
+                        color: Colors.red,
+                      ),
+                      const Text('Mercado dos Grãos - São Cristóvão'),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                      ),
+                      const Text(
+                          'Av. Dom Severino, 2134 Salas 1 a 4 - São Cristóvão, Teresina - PI, 64051-160'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        icon: Icon(Icons.whatsapp, color: Colors.greenAccent),
+                        label: Text(
+                          '(86) 99581-2548',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                        onPressed: () => _launchlink('+5586995812548'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.store,
+                        color: Colors.red,
+                      ),
+                      const Text('Mercado dos Grãos - Jóquei'),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                      ),
+                      const Text(
+                          'R. Des. Manoel Castelo Branco, 1320 - Jóquei, Teresina - PI, 64049-270'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        onPressed: () => _launchlink('+5586994754713'),
+                        icon: Icon(Icons.whatsapp, color: Colors.greenAccent),
+                        label: Text(
+                          '(86) 99475-4713',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.store,
+                        color: Colors.red,
+                      ),
+                      const Text('Ateliê Fit da Jú'),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                      ),
+                      const Text(
+                          'Av. Pedro Almeida, 1039 - São Cristóvão, Teresina - PI, 64052-280'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                        icon: Icon(Icons.whatsapp, color: Colors.greenAccent),
+                        label: Text(
+                          '(86) 99800-9527',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        onPressed: () => _launchlink('+5586998009527'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.store,
+                        color: Colors.red,
+                      ),
+                      const Text('Confeitaria Jacqueline Freire'),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                      ),
+                      const Text(
+                          'Rua Professor Joca Vieira, 1640 - Fátima, Teresina - PI, 64049-514'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      TextButton.icon(
+                          icon: Icon(Icons.whatsapp, color: Colors.greenAccent),
+                          label: Text('(86) 99862-5907',
+                          style: TextStyle(color: Colors.black)),
+                          onPressed: () => _launchlink('+5586998625907'))
+                    ],
+                  ),
+                ],
+              ),
             ),
-                ),
+          ),
         ],
       ),
     );
   }
 }
-
